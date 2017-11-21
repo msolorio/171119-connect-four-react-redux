@@ -1,18 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import Message from './Message';
+import Board from './Board';
 
-export function App() {
+export default function App() {
 
   return (
     <div className="App">
-      from app component
+      <Message />
+      <Board />
     </div>
   );
 }
-
-const mapStateToProps = (state) => ({
-  blackIsNext: state.blackIsNext,
-  board: state.board
-});
-
-export default connect(mapStateToProps)(App);
