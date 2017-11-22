@@ -24,8 +24,7 @@ export function Message(props) {
 
 Message.propTypes = {
   board: PropTypes.arrayOf(
-    // PropTypes.arrayOf(PropTypes.string)
-    PropTypes.string
+    PropTypes.arrayOf(PropTypes.string)
   ).isRequired,
   blackIsNext: PropTypes.bool.isRequired
 };
