@@ -16,6 +16,7 @@ export default function gameReducer(state=initialState, action) {
       // if no available squares in column return state
       if (state.board[action.colIndex][0] !== '') return state;
 
+      // add current player to last empty string in column
       const boardClone = state.board.map((column, index) => {
         if (index === action.colIndex) {
           const colClone = column.slice(0);

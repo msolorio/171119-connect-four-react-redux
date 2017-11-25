@@ -17,13 +17,10 @@ body {
 .Board {
   display: flex;
   flex-wrap: wrap;
-  /*border-top: 3px solid #555;
-  border-left: 3px solid #555;*/
 }
 
 .BoardColumn {
   width: 14.28%;
-  /*border: 1px solid #aaa; /* will remove */
   box-sizing: border-box;
   border: 3px solid transparent;
   cursor: pointer;
