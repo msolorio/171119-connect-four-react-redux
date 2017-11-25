@@ -21,6 +21,7 @@ export default function gameReducer(state=initialState, action) {
         if (index === action.colIndex) {
           const colClone = column.slice(0);
           const lastIndex = colClone.lastIndexOf('');
+          
           colClone[lastIndex] = state.blackIsNext ? 'black' : 'red';
 
           return colClone;

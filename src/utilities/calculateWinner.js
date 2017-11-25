@@ -1,13 +1,17 @@
-// takes in a board returns if winner within subsection
+/**
+ * findVerticalWin - finds vertical wins if any
+ *
+ * @param  {type} board - array or arrays
+ * @return {string} - a winner if any
+ */
 function findVerticalWin(board) {
 
-  // loop through columns and return winner if any
+  // loop through all columns
   return board.reduce((winner, col) => {
 
     let currentWinner = '';
 
-    // check first three squares
-    // to see if there is a vertical win of 4 in a row
+    // loop through first three squares
     for (let i=0; i<3; i++) {
       if (
         col[i] !== ''
@@ -25,13 +29,18 @@ function findVerticalWin(board) {
   }, '');
 }
 
-// loop through first 4 columns
+/**
+ * findHorizontalWin - finds horizontal wins if any
+ *
+ * @param  {type} board - array or arrays
+ * @return {string} - a winner if any
+ */
 function findHorizontalWin(board) {
 
-  // for first four columns in board
+  // loop through first four columns
   for (let i=0; i<4; i++) {
-    // loop through all squares in column
-    // to find horizontal win if any
+
+    // loop through all squares
     let currentWinner = board[i].reduce((winner, square, index) => {
       if (
         square !== ''
@@ -50,14 +59,20 @@ function findHorizontalWin(board) {
     if (currentWinner) return currentWinner;
   }
 
-  // if no winner found
   return '';
 }
 
+/**
+ * findDownRightWin - finds any down right diagonal wins
+ *
+ * @param  {type} board - array or arrays
+ * @return {string} - a winner if any
+ */
 function findDownRightWin(board) {
 
   // within board loop through first 4 columns
   for (let i=0; i<4; i++) {
+
     // within each column loop through first 3 squares
     for (let j=0; j<3; j++) {
       if (
@@ -74,10 +89,17 @@ function findDownRightWin(board) {
   return '';
 }
 
+/**
+ * findDownLeftWin - finds down left diagonal wins if any
+ *
+ * @param  {array} board - array or arrays
+ * @return {string} - a winner if any
+ */
 function findDownLeftWin(board) {
 
   // within board loop through last 4 columns
   for (let i=3; i<7; i++) {
+
     // within each column loop through first 3 squares
     for (let j=0; j<3; j++) {
       if (
@@ -94,7 +116,12 @@ function findDownLeftWin(board) {
   return '';
 }
 
-// takes board (array of arrays), returns winner in any
+/**
+ * calculateWinner
+ *
+ * @param  {array} board - array or arrays of square occupiers
+ * @return {string} - a winner if any
+ */
 export default function calculateWinner(board) {
 
   return (
