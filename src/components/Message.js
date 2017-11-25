@@ -1,13 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import calculateWinner from '../utilities/calculateWinner';
 
 export function Message(props) {
 
   function generateMessage() {
+
+    const winner = calculateWinner(props.board);
+
     switch(true) {
-      // case !!calculateWinner(board):
-        // return `Winner: ${props.winner}`;
+      case !!winner:
+        // capital case winner
+        return `Winner: ${winner.charAt(0).toUpperCase() + winner.slice(1)}`;
       // case !calculateSquaresAvailable:
       //   return 'Game over. There are no squares available';
       default:

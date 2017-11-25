@@ -1,4 +1,5 @@
 import * as actions from '../actions';
+import calculateWinner from '../utilities/calculateWinner';
 
 const initialState = {
   blackIsNext: true,
@@ -6,6 +7,8 @@ const initialState = {
 };
 
 export default function gameReducer(state=initialState, action) {
+
+  if (calculateWinner(state.board)) return state;
 
   switch(action.type) {
     case actions.CLICK_COLUMN:

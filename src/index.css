@@ -6,8 +6,12 @@ body {
 
 .App {
   max-width: 800px;
-  padding: 0 15px;
+  padding: 20px 15px;
   margin: 0 auto;
+}
+
+.Message {
+  padding: 10px 0 15px;
 }
 
 .Board {

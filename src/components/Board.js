@@ -4,14 +4,10 @@ import PropTypes from 'prop-types';
 import BoardColumn from './BoardColumn';
 import Square from './Square';
 import { clickColumn } from '../actions';
+import calculateWinner from '../utilities/calculateWinner';
 
 export function Board(props) {
-
-  // function handleColumnClick(colIndex) {
-  //   console.log('in handleColumnClick, colIndex', colIndex);
-  //   props.dispatch(clickColumn(colIndex));
-  // }
-
+  
   // generates squares within given column
   function generateSquares(squares, colIndex) {
     return squares.map((squareVal, squareIndex) => {
@@ -37,8 +33,6 @@ export function Board(props) {
       );
     });
   }
-  
-  console.log('board:', props.board);
 
   return (
 
