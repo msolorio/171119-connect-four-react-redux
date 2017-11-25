@@ -8,21 +8,27 @@ const initialState = {
 export default function gameReducer(state=initialState, action) {
 
   switch(action.type) {
-    case actions.CLICK_SQUARE:
+    case actions.CLICK_COLUMN:
 
-      // const boardClone = state.board.slice(0);
-      //
-      // // check if square is occupied do not update state
-      // if (boardClone[action.index]) return state;
-      //
-      // boardClone[action.index] = state.blackIsNext ? 'black' : 'red';
-      //
-      // return Object.assign({}, state, {
-      //   board: boardClone,
-      //   blackIsNext: !state.blackIsNext
-      // });
-      console.log('in CLICK_SQUARE in reducer');
-      return state;
+      // if no available squares in column return state
+      if (state.board[action.colIndex][0] !== '') return state;
+
+      const boardClone = state.board.map((column, index) => {
+        if (index === action.colIndex) {
+          const colClone = column.slice(0);
+          const lastIndex = colClone.lastIndexOf('');
+          colClone[lastIndex] = state.blackIsNext ? 'black' : 'red';
+
+          return colClone;
+        } else {
+          return column;
+        }
+      });
+
+      return Object.assign({}, state, {
+        board: boardClone,
+        blackIsNext: !state.blackIsNext
+      });
 
     default:
       return state;

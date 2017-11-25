@@ -1,6 +1,6 @@
-export const CLICK_SQUARE = 'CLICK_SQUARE';
+export const CLICK_COLUMN = 'CLICK_COLUMN';
 
-export const clickSquare = (index) => ({
-  type: CLICK_SQUARE,
-  index
+export const clickColumn = (colIndex) => ({
+  type: CLICK_COLUMN,
+  colIndex
 });

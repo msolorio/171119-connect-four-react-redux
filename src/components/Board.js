@@ -3,38 +3,45 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import BoardColumn from './BoardColumn';
 import Square from './Square';
-import { clickSquare } from '../actions';
+import { clickColumn } from '../actions';
 
 export function Board(props) {
 
-  function handleSquareClick(index) {
-    console.log('in handleSquareClick', index);
-    props.dispatch(clickSquare(index));
-  }
+  // function handleColumnClick(colIndex) {
+  //   console.log('in handleColumnClick, colIndex', colIndex);
+  //   props.dispatch(clickColumn(colIndex));
+  // }
 
-  function generateSquares(squares) {
-    console.log('squares:', squares);
-    return squares.map((squareVal, index) => {
+  // generates squares within given column
+  function generateSquares(squares, colIndex) {
+    return squares.map((squareVal, squareIndex) => {
+
       return (
         <Square squareOccupier={squareVal}
-          handleSquareClick={handleSquareClick} />
+          index={squareIndex}
+          key={squareIndex} />
       );
     });
   }
 
   function generateColumns() {
-    return props.board.map((column, index) => {
-      // console.log('column', index);
+    return props.board.map((column, colIndex) => {
+
+      const handleColumnClick = () => props.dispatch(clickColumn(colIndex));
+
       return (
-        <BoardColumn key={index}>
-          {generateSquares(column)}
+        <BoardColumn handleColumnClick={handleColumnClick}
+          key={colIndex}>
+          {generateSquares(column, colIndex)}
         </BoardColumn>
       );
     });
-    // console.log('props:', props);
   }
+  
+  console.log('board:', props.board);
 
   return (
+
     <div className="Board">
       {generateColumns()}
     </div>

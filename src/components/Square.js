@@ -7,14 +7,12 @@ export default function Square(props) {
   }
 
   return (
-    <div className="SquareWrap"
-      onClick={props.handleSquareClick}>
+    <div className="SquareWrap">
       <div className={`Square ${getClassName()}`} />
     </div>
   );
 }
 
 Square.propTypes = {
-  squareOccupier: PropTypes.string.isRequired,
-  handleSquareClick: PropTypes.func.isRequired
+  squareOccupier: PropTypes.string.isRequired
 };

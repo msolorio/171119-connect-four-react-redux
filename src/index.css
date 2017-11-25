@@ -19,41 +19,38 @@ body {
 
 .BoardColumn {
   width: 14.28%;
-  border: 1px solid #aaa; /* will remove */
+  /*border: 1px solid #aaa; /* will remove */
   box-sizing: border-box;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 80ms ease;
+}
+
+.BoardColumn:hover {
+  background: rgba(255, 209, 43, 0.25);
+  border: 3px solid rgba(255, 209, 43, 0.2);
 }
 
 .SquareWrap {
+  position: relative;
+  z-index: -1;
   box-sizing: border-box;
   width: 100%;
   height: 70px;
-  /*cursor: pointer;*/
   padding: 7px;
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-  /*transition: all 80ms ease;*/
 }
-
-/*.SquareWrap:hover {
-  padding: 3px;
-}*/
-
-/*.SquareWrap:active {
-  padding: 0px;
-}*/
 
 .Square {
   width: 100%;
   height: 100%;
   background: #eee;
-  /*transition: all 300ms ease;*/
+  transition: all 300ms ease;
 }
 
 .Square-black {
-  /*background: #444433;*/
+  background: #444433;
 }
 
 .Square-red {
-  /*background: #ff7755;*/
+  background: #ff7755;
 }
